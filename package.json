@@ -37,8 +37,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "npm run prettier",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "husky": {
