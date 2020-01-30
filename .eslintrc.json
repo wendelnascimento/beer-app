@@ -5,8 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
-        "plugin:prettier/recommended"
+        "airbnb"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -23,12 +22,5 @@
         "react",
         "prettier"
     ],
-    "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": false
-            }
-        ],
-    }
+    "rules": {}
 }
