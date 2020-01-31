@@ -61,7 +61,7 @@ describe('<SearchBar />', () => {
     const keyframesObject = css`
       ${loadingAnimation}
     `;
-    const animation = `${keyframesObject[0].name} 3s infinite ease-in-out alternate`;
+    const animation = `${keyframesObject[1].name} 3s infinite ease-in-out alternate`;
 
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find(InputWrapper)).toHaveStyleRule('animation', animation, {
