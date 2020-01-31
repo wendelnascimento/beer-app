@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "BEER_APP_ENV=development && webpack-dev-server",
+    "start": "export BEER_APP_ENV=development && webpack-dev-server",
     "build": "webpack",
     "prettier": "prettier --write --single-quote true --trailing-comma all --print-width 100"
   },
