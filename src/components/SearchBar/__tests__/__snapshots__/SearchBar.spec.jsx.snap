@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar /> matches stored snapshot 1`] = `
+.c0 {
+  padding: 24px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 2px solid #fff;
+  box-shadow: rgba(0,0,0,0.6) 0px 2px 15px -5px;
+  width: 100%;
+  font-size: 1.5rem;
+  outline: none;
+  -webkit-transition: border 0.3s cubic-bezier(0.19,1,0.22,1);
+  transition: border 0.3s cubic-bezier(0.19,1,0.22,1);
+}
+
+.c0::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+.c0::-moz-placeholder {
+  color: #ddd;
+}
+
+.c0:-ms-input-placeholder {
+  color: #ddd;
+}
+
+.c0::placeholder {
+  color: #ddd;
+}
+
+.c0:hover,
+.c0:focus {
+  border: 2px solid #f28e1c;
+}
+
+<SearchBar
+  onChange={[MockFunction]}
+  value=""
+>
+  <styled.input
+    onChange={[MockFunction]}
+    placeholder="Ex: Rua Américo Brasiliense, São Paulo"
+    type="search"
+    value=""
+  >
+    <input
+      className="c0"
+      onChange={[MockFunction]}
+      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
+      type="search"
+      value=""
+    />
+  </styled.input>
+</SearchBar>
+`;
