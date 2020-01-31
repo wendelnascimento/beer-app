@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseLayout /> matches stored snapshot 1`] = `
+.c1 {
+  max-width: 100vw;
+  background: #fff;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border-bottom: 1px solid #fafafa;
+}
+
+.c2 {
+  font-weight: 300;
+  margin: 0;
+}
+
+.c3 {
+  padding: 16px;
+  color: #cccccc;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  border-top: 1px solid #fafafa;
+}
+
+.c0 {
+  max-width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<BaseLayout>
+  <styled.div>
+    <div
+      className="c0"
+    >
+      <Header>
+        <styled.header>
+          <header
+            className="c1"
+          >
+            <styled.h1>
+              <h1
+                className="c2"
+              >
+                Beer App
+                <span
+                  aria-label="Beer"
+                  role="img"
+                >
+                  🍺
+                </span>
+              </h1>
+            </styled.h1>
+          </header>
+        </styled.header>
+      </Header>
+      <h1>
+        Test
+      </h1>
+      <Footer>
+        <styled.footer>
+          <footer
+            className="c3"
+          >
+            <span>
+              Beer App
+               
+              <span
+                aria-label="Beer"
+                role="img"
+              >
+                🍺
+              </span>
+               
+              - ©
+               
+              2020
+            </span>
+          </footer>
+        </styled.footer>
+      </Footer>
+    </div>
+  </styled.div>
+</BaseLayout>
+`;
