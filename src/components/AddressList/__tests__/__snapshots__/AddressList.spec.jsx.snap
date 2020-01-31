@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressList /> matches stored snapshot with a populated list 1`] = `
+.c0 {
+  list-style-type: none;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 1px solid #eee;
+  box-shadow: rgba(0,0,0,0.6) 0px 14px 23px -16px;
+  background: #ffffff;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.c1 {
+  padding: 8px 24px;
+  width: 100%;
+}
+
+.c1:not(:last-child) {
+  border-bottom: 1px solid #fafafa;
+  padding-bottom: 24px;
+}
+
+.c3 {
+  display: block;
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.c4 {
+  display: block;
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.c2 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <AddressList
+      addresses={
+        Array [
+          Object {
+            "id": 1,
+            "position": Array [
+              123456,
+              456123,
+            ],
+            "title": "Test Address 1",
+            "vicinity": "<b>Test city 1</b>",
+          },
+          Object {
+            "id": 2,
+            "position": Array [
+              123456,
+              456123,
+            ],
+            "title": "Test Address 2",
+            "vicinity": "<b>Test city 2</b>",
+          },
+          Object {
+            "id": 3,
+            "position": Array [
+              123456,
+              456123,
+            ],
+            "title": "Test Address 3",
+            "vicinity": "<b>Test city 3</b>",
+          },
+          Object {
+            "id": 4,
+            "title": "Test Address 4",
+          },
+        ]
+      }
+    >
+      <styled.ul>
+        <ul
+          className="c0"
+        >
+          <styled.li
+            key="1"
+          >
+            <li
+              className="c1"
+            >
+              <Styled(Link)
+                to="/list?lat=123456&long=456123&address=Test Address 1"
+              >
+                <Link
+                  className="c2"
+                  to="/list?lat=123456&long=456123&address=Test Address 1"
+                >
+                  <LinkAnchor
+                    className="c2"
+                    href="/list?lat=123456&long=456123&address=Test Address 1"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="c2"
+                      href="/list?lat=123456&long=456123&address=Test Address 1"
+                      onClick={[Function]}
+                    >
+                      <styled.span>
+                        <span
+                          className="c3"
+                        >
+                          Test Address 1
+                        </span>
+                      </styled.span>
+                      <styled.span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<b>Test city 1</b>",
+                          }
+                        }
+                      >
+                        <span
+                          className="c4"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<b>Test city 1</b>",
+                            }
+                          }
+                        />
+                      </styled.span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </li>
+          </styled.li>
+          <styled.li
+            key="2"
+          >
+            <li
+              className="c1"
+            >
+              <Styled(Link)
+                to="/list?lat=123456&long=456123&address=Test Address 2"
+              >
+                <Link
+                  className="c2"
+                  to="/list?lat=123456&long=456123&address=Test Address 2"
+                >
+                  <LinkAnchor
+                    className="c2"
+                    href="/list?lat=123456&long=456123&address=Test Address 2"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="c2"
+                      href="/list?lat=123456&long=456123&address=Test Address 2"
+                      onClick={[Function]}
+                    >
+                      <styled.span>
+                        <span
+                          className="c3"
+                        >
+                          Test Address 2
+                        </span>
+                      </styled.span>
+                      <styled.span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<b>Test city 2</b>",
+                          }
+                        }
+                      >
+                        <span
+                          className="c4"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<b>Test city 2</b>",
+                            }
+                          }
+                        />
+                      </styled.span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </li>
+          </styled.li>
+          <styled.li
+            key="3"
+          >
+            <li
+              className="c1"
+            >
+              <Styled(Link)
+                to="/list?lat=123456&long=456123&address=Test Address 3"
+              >
+                <Link
+                  className="c2"
+                  to="/list?lat=123456&long=456123&address=Test Address 3"
+                >
+                  <LinkAnchor
+                    className="c2"
+                    href="/list?lat=123456&long=456123&address=Test Address 3"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="c2"
+                      href="/list?lat=123456&long=456123&address=Test Address 3"
+                      onClick={[Function]}
+                    >
+                      <styled.span>
+                        <span
+                          className="c3"
+                        >
+                          Test Address 3
+                        </span>
+                      </styled.span>
+                      <styled.span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<b>Test city 3</b>",
+                          }
+                        }
+                      >
+                        <span
+                          className="c4"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<b>Test city 3</b>",
+                            }
+                          }
+                        />
+                      </styled.span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </li>
+          </styled.li>
+        </ul>
+      </styled.ul>
+    </AddressList>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`<AddressList /> matches stored snapshot with empty list 1`] = `
+<AddressList
+  addresses={Array []}
+/>
+`;
