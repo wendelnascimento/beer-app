@@ -6,13 +6,13 @@ module.exports = {
   entry: './index.jsx',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'index_bundle.js',
+    filename: '[name]-[hash].js',
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-      hash: true,
     }),
   ],
   module: {
@@ -34,7 +34,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    hot: true,
     port: process.env.PORT || '3000',
     open: true,
   },
