@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import BaseLayout from '../../layouts/BaseLayout';
 import SearchBar from '../../components/SearchBar';
 import AddressList from '../../components/AddressList';
 import useDebounce from '../../hooks/useDebounce';
 
-import {
-  Wrapper, Title, Subtitle, SearchBarContainer,
-} from './styles';
+import { Wrapper, Subtitle, SearchBarContainer } from './styles';
 
 const Home = () => {
   const [searchAddress, setSearchAddress] = useState('');
@@ -49,14 +48,15 @@ const Home = () => {
   const handleChange = (event) => setSearchAddress(event.currentTarget.value);
 
   return (
-    <Wrapper>
-      <Title>Beer App</Title>
-      <Subtitle>Digite seu endereço abaixo para ver as melhores cervejas em sua região</Subtitle>
-      <SearchBarContainer>
-        <SearchBar onChange={handleChange} value={searchAddress} />
-        <AddressList addresses={addresses} />
-      </SearchBarContainer>
-    </Wrapper>
+    <BaseLayout>
+      <Wrapper>
+        <Subtitle>Digite seu endereço abaixo para ver as melhores cervejas em sua região</Subtitle>
+        <SearchBarContainer>
+          <SearchBar onChange={handleChange} value={searchAddress} />
+          <AddressList addresses={addresses} />
+        </SearchBarContainer>
+      </Wrapper>
+    </BaseLayout>
   );
 };
 
