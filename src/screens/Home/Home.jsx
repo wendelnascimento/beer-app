@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchBar from '../../components/SearchBar';
+import AddressList from '../../components/AddressList';
 import useDebounce from '../../hooks/useDebounce';
 
-import { Wrapper, Title, Subtitle } from './styles';
+import {
+  Wrapper, Title, Subtitle, SearchBarContainer,
+} from './styles';
 
 const Home = () => {
   const [searchAddress, setSearchAddress] = useState('');
+  const [addresses, setAddresses] = useState([]);
 
   const debouncedSearchAddress = useDebounce(searchAddress, 300);
 
   const handleResponse = async (response) => {
     const json = await response.json();
-    console.log(json);
+    setAddresses(json.results);
   };
 
   useEffect(() => {
@@ -37,6 +41,8 @@ const Home = () => {
         );
       };
       fetchAddress();
+    } else {
+      setAddresses([]);
     }
   }, [debouncedSearchAddress]);
 
@@ -46,7 +52,10 @@ const Home = () => {
     <Wrapper>
       <Title>Beer App</Title>
       <Subtitle>Digite seu endereço abaixo para ver as melhores cervejas em sua região</Subtitle>
-      <SearchBar onChange={handleChange} value={searchAddress} />
+      <SearchBarContainer>
+        <SearchBar onChange={handleChange} value={searchAddress} />
+        <AddressList addresses={addresses} />
+      </SearchBarContainer>
     </Wrapper>
   );
 };
