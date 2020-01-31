@@ -5,7 +5,12 @@ import { createGlobalStyle } from 'styled-components';
 import Home from './screens/Home';
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    margin: 0;
+  }
+
   body {
+    margin: 0;
     font-family: 'Open Sans', sans-serif;
   }
 `;
