@@ -9,6 +9,27 @@ export const loadingAnimation = keyframes`
   }
 `;
 
+export const blinkErrorAnimation = keyframes`
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: #b03c3c;
+  }
+  100% {
+    border-color: #fff;
+  }
+`;
+
+export const opactityAnimationMessage = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 export const InputWrapper = styled.div`
   width: 100%;
   position: relative;
@@ -41,6 +62,8 @@ export const CustomInput = styled.input`
   font-size: 1.5rem;
   outline: none;
   transition: border 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: ${({ error }) => error === 'true' && blinkErrorAnimation} 2s 4
+    cubic-bezier(0.19, 1, 0.22, 1);
 
   &::placeholder {
     color: #ddd;
@@ -50,4 +73,13 @@ export const CustomInput = styled.input`
   &:focus {
     border: 2px solid #f28e1c;
   }
+`;
+
+export const ErrorMessage = styled.strong`
+  display: block;
+  color: #b03c3c;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  opacity: 0;
+  animation: ${opactityAnimationMessage} 2s forwards cubic-bezier(0.19, 1, 0.22, 1);
 `;

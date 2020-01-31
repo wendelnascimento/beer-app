@@ -3,7 +3,13 @@ import { shallow, mount } from 'enzyme';
 import { css } from 'styled-components';
 
 import SearchBar from '../SearchBar';
-import { InputWrapper, loadingAnimation } from '../styles';
+import {
+  InputWrapper,
+  CustomInput,
+  loadingAnimation,
+  blinkErrorAnimation,
+  opactityAnimationMessage,
+} from '../styles';
 
 describe('<SearchBar />', () => {
   const props = {
@@ -67,5 +73,32 @@ describe('<SearchBar />', () => {
     expect(wrapper.find(InputWrapper)).toHaveStyleRule('animation', animation, {
       modifier: ':after',
     });
+  });
+
+  it('renders error state', () => {
+    const wrapper = mount(<SearchBar onChange={props.onChange} value={props.value} error />);
+
+    const blinkAnimationObject = css`
+      ${blinkErrorAnimation}
+    `;
+    const blinkAnimation = `${blinkAnimationObject[1].name} 2s 4 cubic-bezier(0.19,1,0.22,1)`;
+
+    const opacityAnimationObject = css`
+      ${opactityAnimationMessage}
+    `;
+    const opacityAnimation = `${opacityAnimationObject[1].name} 2s forwards cubic-bezier(0.19,1,0.22,1)`;
+
+    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find(CustomInput)
+        .getDOMNode()
+        .getAttribute('aria-invalid'),
+    ).toBe('true');
+    expect(wrapper.find(CustomInput)).toHaveStyleRule('animation', blinkAnimation);
+    expect(wrapper.find('strong').text()).toEqual(
+      'Houve um problema ao encontrar o endereço solicitado, tente novamente.',
+    );
+    expect(wrapper.find('strong')).toHaveStyleRule('animation', opacityAnimation);
   });
 });

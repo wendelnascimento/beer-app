@@ -11,6 +11,7 @@ const Home = () => {
   const [searchAddress, setSearchAddress] = useState('');
   const [addresses, setAddresses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const debouncedSearchAddress = useDebounce(searchAddress, 300);
 
@@ -18,6 +19,11 @@ const Home = () => {
     const json = await response.json();
     setAddresses(json.results);
     setLoading(false);
+  };
+
+  const handleError = () => {
+    setLoading(false);
+    setError(true);
   };
 
   useEffect(() => {
@@ -30,16 +36,30 @@ const Home = () => {
         */
         await navigator.geolocation.getCurrentPosition(
           async (position) => {
-            const response = await fetch(
-              `https://places.ls.hereapi.com/places/v1/autosuggest?apiKey=6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk&at=${position.coords.latitude},${position.coords.longitude}&q=${debouncedSearchAddress}`,
-            );
-            await handleResponse(response);
+            try {
+              const response = await fetch(
+                `https://places.ls.hereapi.com/places/v1/autosuggest?apiKey=6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk&at=${position.coords.latitude},${position.coords.longitude}&q=${debouncedSearchAddress}`,
+              );
+              if (!response.ok) {
+                throw Error();
+              }
+              await handleResponse(response);
+            } catch (err) {
+              handleError();
+            }
           },
           async () => {
-            const response = await fetch(
-              `https://places.ls.hereapi.com/places/v1/autosuggest?apiKey=6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk&in=-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569&q=${debouncedSearchAddress}`,
-            );
-            await handleResponse(response);
+            try {
+              const response = await fetch(
+                `https://places.ls.hereapi.com/places/v1/autosuggest?apiKey=6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk&in=-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569&q=${debouncedSearchAddress}`,
+              );
+              if (!response.ok) {
+                throw Error();
+              }
+              await handleResponse(response);
+            } catch (err) {
+              handleError();
+            }
           },
         );
       };
@@ -49,14 +69,22 @@ const Home = () => {
     }
   }, [debouncedSearchAddress]);
 
-  const handleChange = (event) => setSearchAddress(event.currentTarget.value);
+  const handleChange = (event) => {
+    setSearchAddress(event.currentTarget.value);
+    setError(false);
+  };
 
   return (
     <BaseLayout>
       <Wrapper>
         <Subtitle>Digite seu endereço abaixo para ver as melhores cervejas em sua região</Subtitle>
         <SearchBarContainer>
-          <SearchBar onChange={handleChange} value={searchAddress} loading={loading} />
+          <SearchBar
+            onChange={handleChange}
+            value={searchAddress}
+            loading={loading}
+            error={error}
+          />
           <AddressList addresses={addresses} />
         </SearchBarContainer>
       </Wrapper>
