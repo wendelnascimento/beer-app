@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> matches stored snapshot 1`] = `
+.c0 {
+  max-width: 100vw;
+  background: #fff;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border-bottom: 1px solid #fafafa;
+}
+
+.c1 {
+  font-weight: 300;
+  margin: 0;
+}
+
+<Header>
+  <styled.header>
+    <header
+      className="c0"
+    >
+      <styled.h1>
+        <h1
+          className="c1"
+        >
+          Beer App
+          <span
+            aria-label="Beer"
+            role="img"
+          >
+            🍺
+          </span>
+        </h1>
+      </styled.h1>
+    </header>
+  </styled.header>
+</Header>
+`;
