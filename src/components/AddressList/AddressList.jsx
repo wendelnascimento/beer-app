@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  List, ListItem, ItemTitle, ItemVicinity,
+  List, ListItem, ItemTitle, ItemVicinity, CustomLink,
 } from './styles';
 
 const AddressList = ({ addresses }) => {
@@ -12,12 +12,18 @@ const AddressList = ({ addresses }) => {
 
   return (
     <List>
-      {addresses.map((item) => (
-        <ListItem key={item.id}>
-          <ItemTitle>{item.title}</ItemTitle>
-          <ItemVicinity dangerouslySetInnerHTML={{ __html: item.vicinity }} />
-        </ListItem>
-      ))}
+      {addresses
+        .filter((item) => item.position)
+        .map((item) => (
+          <ListItem key={item.id}>
+            <CustomLink
+              to={`/list?lat=${item.position[0]}&long=${item.position[1]}&address=${item.title}`}
+            >
+              <ItemTitle>{item.title}</ItemTitle>
+              <ItemVicinity dangerouslySetInnerHTML={{ __html: item.vicinity }} />
+            </CustomLink>
+          </ListItem>
+        ))}
     </List>
   );
 };
