@@ -1,13 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { css } from 'styled-components';
 
 import SearchBar from '../SearchBar';
+import { InputWrapper, loadingAnimation } from '../styles';
 
 describe('<SearchBar />', () => {
   const props = {
     onChange: jest.fn(),
     value: '',
   };
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
 
   it('does render properly', () => {
     shallow(<SearchBar onChange={props.onChange} value={props.value} />);
@@ -43,5 +49,26 @@ describe('<SearchBar />', () => {
     });
 
     expect(wrapper.find('input').getDOMNode().value).toEqual('Test');
+  });
+
+  it('renders loading state', () => {
+    const wrapper = mount(<SearchBar onChange={props.onChange} value={props.value} loading />);
+
+    const modifier = css`
+      :after ;
+    `;
+
+    const keyframesObject = css`
+      ${loadingAnimation}
+    `;
+
+    const animation = `${keyframesObject[0].name} 3s infinite ease-in-out alternate`;
+
+    console.log(animation);
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(InputWrapper)).toHaveStyleRule('animation', animation, {
+      modifier,
+    });
   });
 });

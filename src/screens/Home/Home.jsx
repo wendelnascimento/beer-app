@@ -10,17 +10,21 @@ import { Wrapper, Subtitle, SearchBarContainer } from './styles';
 const Home = () => {
   const [searchAddress, setSearchAddress] = useState('');
   const [addresses, setAddresses] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const debouncedSearchAddress = useDebounce(searchAddress, 300);
 
   const handleResponse = async (response) => {
     const json = await response.json();
     setAddresses(json.results);
+    setLoading(false);
   };
 
   useEffect(() => {
     if (debouncedSearchAddress) {
       const fetchAddress = async () => {
+        setLoading(true);
+
         /* Here we try to get user position to send and get the nearest location,
            otherwise we use Brazil bounding box
         */
@@ -52,7 +56,7 @@ const Home = () => {
       <Wrapper>
         <Subtitle>Digite seu endereço abaixo para ver as melhores cervejas em sua região</Subtitle>
         <SearchBarContainer>
-          <SearchBar onChange={handleChange} value={searchAddress} />
+          <SearchBar onChange={handleChange} value={searchAddress} loading={loading} />
           <AddressList addresses={addresses} />
         </SearchBarContainer>
       </Wrapper>
