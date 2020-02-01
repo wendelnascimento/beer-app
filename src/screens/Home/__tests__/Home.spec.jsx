@@ -400,4 +400,430 @@ describe('<Home />', () => {
     wrapper.update();
     expect(wrapper.find(SearchBar).prop('loading')).toBe(false);
   });
+
+  it('has an error state', async () => {
+    const wrapper = mount(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
+
+    fetchMock.mock(
+      {
+        url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+        query: {
+          apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+          at: '51.1,45.3',
+          q: 'Rua Américo Brasiliense',
+        },
+        method: 'GET',
+      },
+      {
+        status: 400,
+      },
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+    // Wait for the debounce to trigger
+    await act(async () => {
+      await wait(300);
+    });
+
+    wrapper.update();
+    expect(wrapper.find(SearchBar).prop('error')).toBe(true);
+  });
+
+  it('provides addresses for AddressList children', async () => {
+    const wrapper = mount(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
+
+    fetchMock.mock(
+      {
+        url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+        query: {
+          apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+          at: '51.1,45.3',
+          q: 'Rua Américo Brasiliense',
+        },
+        method: 'GET',
+      },
+      {
+        status: 200,
+        body: getAddresses,
+      },
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+    // Wait for the debounce to trigger
+    await act(async () => {
+      await wait(300);
+    });
+
+    wrapper.update();
+    expect(wrapper.find(AddressList).prop('addresses')).toEqual(getAddresses.results);
+  });
+
+  it('matches stored snapshot with loading state', async () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+        <Home />
+      </MemoryRouter>,
+    );
+
+    fetchMock.mock(
+      {
+        url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+        query: {
+          apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+          at: '51.1,45.3',
+          q: 'Rua Américo Brasiliense',
+        },
+        method: 'GET',
+      },
+      {
+        status: 200,
+        body: getAddresses,
+      },
+      {
+        delay: 600,
+      },
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+    // Wait for the debounce to trigger
+    await act(async () => {
+      await wait(300);
+    });
+
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('matches snapshot after request is fullfiled and loading is false', async () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+        <Home />
+      </MemoryRouter>,
+    );
+
+    fetchMock.mock(
+      {
+        url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+        query: {
+          apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+          at: '51.1,45.3',
+          q: 'Rua Américo Brasiliense',
+        },
+        method: 'GET',
+      },
+      {
+        status: 200,
+        body: getAddresses,
+      },
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+    // Wait for the debounce to trigger
+    await act(async () => {
+      await wait(300);
+    });
+
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('matches snapshot with error state', async () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+        <Home />
+      </MemoryRouter>,
+    );
+
+    fetchMock.mock(
+      {
+        url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+        query: {
+          apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+          at: '51.1,45.3',
+          q: 'Rua Américo Brasiliense',
+        },
+        method: 'GET',
+      },
+      {
+        status: 400,
+      },
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+    // Wait for the debounce to trigger
+    await act(async () => {
+      await wait(300);
+    });
+
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('without geolocation from user', () => {
+    beforeEach(() => {
+      const mockGeolocation = {
+        getCurrentPosition: jest
+          .fn()
+          .mockImplementationOnce((success, err) => Promise.resolve(err())),
+        watchPosition: jest.fn(),
+      };
+
+      global.navigator.geolocation = mockGeolocation;
+    });
+
+    it('has loading state', async () => {
+      const wrapper = mount(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 200,
+          body: getAddresses,
+        },
+        {
+          delay: 600,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper.find(SearchBar).prop('loading')).toBe(true);
+    });
+
+    it('has false loading state after request if fullfiled', async () => {
+      const wrapper = mount(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 200,
+          body: getAddresses,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper.find(SearchBar).prop('loading')).toBe(false);
+    });
+
+    it('has an error state', async () => {
+      const wrapper = mount(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 400,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper.find(SearchBar).prop('error')).toBe(true);
+    });
+
+    it('provides addresses for AddressList children', async () => {
+      const wrapper = mount(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 200,
+          body: getAddresses,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper.find(AddressList).prop('addresses')).toEqual(getAddresses.results);
+    });
+
+    it('matches stored snapshot with loading state', async () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 200,
+          body: getAddresses,
+        },
+        {
+          delay: 600,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('matches snapshot after request is fullfiled and loading is false', async () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 200,
+          body: getAddresses,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('matches snapshot with error state', async () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      fetchMock.mock(
+        {
+          url: 'https://places.ls.hereapi.com/places/v1/autosuggest',
+          query: {
+            apiKey: '6_ZHx-iYqM1ZmBT3IYc8igRwr8xRB4Yn3hz5rMWxNvk',
+            in: '-73.9872354804,-33.7683777809,-34.7299934555,5.24448639569',
+            q: 'Rua Américo Brasiliense',
+          },
+          method: 'GET',
+        },
+        {
+          status: 400,
+        },
+      );
+
+      wrapper.find('input').simulate('change', { target: { value: 'Rua Américo Brasiliense' } });
+
+      // Wait for the debounce to trigger
+      await act(async () => {
+        await wait(300);
+      });
+
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
