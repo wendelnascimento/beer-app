@@ -70,7 +70,7 @@ const Home = () => {
   }, [debouncedSearchAddress]);
 
   const handleChange = (event) => {
-    setSearchAddress(event.currentTarget.value);
+    setSearchAddress(event.target.value);
     setError(false);
   };
 
