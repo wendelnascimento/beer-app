@@ -65,8 +65,10 @@ exports[`<SearchBar /> matches stored snapshot 1`] = `
 
 <SearchBar
   error={false}
+  errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
   loading={false}
   onChange={[MockFunction]}
+  placeholder="Ex: Rua Américo Brasiliense, São Paulo"
   value=""
 >
   <div>
@@ -177,8 +179,10 @@ exports[`<SearchBar /> renders error state 1`] = `
 
 <SearchBar
   error={true}
+  errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
   loading={false}
   onChange={[MockFunction]}
+  placeholder="Ex: Rua Américo Brasiliense, São Paulo"
   value=""
 >
   <div>
@@ -289,8 +293,10 @@ exports[`<SearchBar /> renders loading state 1`] = `
 
 <SearchBar
   error={false}
+  errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
   loading={true}
   onChange={[MockFunction]}
+  placeholder="Ex: Rua Américo Brasiliense, São Paulo"
   value=""
 >
   <div>
