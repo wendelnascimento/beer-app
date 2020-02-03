@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> should match stored snapshot 1`] = `
+.c0 {
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.6);
+}
+
+.c1 {
+  font-size: 7rem;
+  -webkit-transform: scale3d(1,1,1),rotate3d(0,0,1,0deg);
+  -ms-transform: scale3d(1,1,1),rotate3d(0,0,1,0deg);
+  transform: scale3d(1,1,1),rotate3d(0,0,1,0deg);
+  -webkit-animation: bFhvm 2s infinite linear;
+  animation: bFhvm 2s infinite linear;
+}
+
+<Loading>
+  <styled.div>
+    <div
+      className="c0"
+    >
+      <styled.span>
+        <span
+          className="c1"
+        >
+          <span
+            aria-label="Beer App"
+            role="img"
+          >
+            🍺
+          </span>
+        </span>
+      </styled.span>
+    </div>
+  </styled.div>
+</Loading>
+`;
