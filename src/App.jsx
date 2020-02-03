@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import { ApolloProvider } from 'react-apollo';
+
+import client from './apollo/apolloClient';
 
 import Loading from './components/Loading';
 
@@ -24,7 +27,15 @@ const App = () => (
     <Suspense fallback={<Loading />}>
       <Router>
         <Switch>
-          <Route exact path="/list" component={Products} />
+          <Route
+            exact
+            path="/list"
+            component={() => (
+              <ApolloProvider client={client}>
+                <Products />
+              </ApolloProvider>
+            )}
+          />
           <Route component={Home} />
         </Switch>
       </Router>

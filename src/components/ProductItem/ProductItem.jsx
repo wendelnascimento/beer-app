@@ -69,7 +69,7 @@ ProductItem.propTypes = {
     rgb: PropTypes.bool.isRequired,
     images: PropTypes.arrayOf(PropTypes.object).isRequired,
     productVariants: PropTypes.arrayOf(PropTypes.object).isRequired,
-    __typename: PropTypes.string.isRequired,
+    __typename: PropTypes.string,
   }).isRequired,
 };
 

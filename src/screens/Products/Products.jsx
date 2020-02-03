@@ -1,11 +1,9 @@
 import React, {
   useMemo, useRef, useEffect, useState,
 } from 'react';
-import { useQuery, useLazyQuery } from '@apollo/react-hooks';
+import { useQuery, useLazyQuery, useApolloClient } from '@apollo/react-hooks';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-
-import client from '../../apollo/apolloClient';
 
 import useDebounce from '../../hooks/useDebounce';
 
@@ -31,6 +29,8 @@ const Products = () => {
   const date = useRef(new Date().toISOString());
 
   const debouncedSearch = useDebounce(search, 300);
+
+  const client = useApolloClient();
 
   const { data = {}, loading, error } = useQuery(GET_POC_QUERY, {
     client,
@@ -122,7 +122,7 @@ const Products = () => {
         )}
         <Title>Confira os produtos disponíveis</Title>
         {hasError && (
-          <h2>Ocorreu um um erro ao encontrar os produtos selecionados, tente novamente.</h2>
+          <h3>Ocorreu um um erro ao encontrar os produtos selecionados, tente novamente.</h3>
         )}
         {productsData && <ProductsList products={productsData.poc.products} />}
       </Wrapper>
