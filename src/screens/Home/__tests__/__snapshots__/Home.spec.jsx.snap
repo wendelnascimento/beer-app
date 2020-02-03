@@ -284,8 +284,10 @@ exports[`<Home /> matches snapshot after request is fullfiled and loading is fal
                   >
                     <SearchBar
                       error={false}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={false}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
@@ -1727,8 +1729,10 @@ exports[`<Home /> matches snapshot with error state 1`] = `
                   >
                     <SearchBar
                       error={true}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={false}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
@@ -2053,8 +2057,10 @@ exports[`<Home /> matches stored snapshot 1`] = `
                   >
                     <SearchBar
                       error={false}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={false}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value=""
                     >
                       <div>
@@ -2369,8 +2375,10 @@ exports[`<Home /> matches stored snapshot with loading state 1`] = `
                   >
                     <SearchBar
                       error={false}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={true}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
@@ -2725,8 +2733,10 @@ exports[`<Home /> without geolocation from user matches snapshot after request i
                   >
                     <SearchBar
                       error={false}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={false}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
@@ -4168,8 +4178,10 @@ exports[`<Home /> without geolocation from user matches snapshot with error stat
                   >
                     <SearchBar
                       error={true}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={false}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
@@ -4494,8 +4506,10 @@ exports[`<Home /> without geolocation from user matches stored snapshot with loa
                   >
                     <SearchBar
                       error={false}
+                      errorMessage="Houve um problema ao encontrar o endereço solicitado, tente novamente."
                       loading={true}
                       onChange={[Function]}
+                      placeholder="Ex: Rua Américo Brasiliense, São Paulo"
                       value="Rua Américo Brasiliense"
                     >
                       <div>
