@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: './public/index.html',
+      template: './public/index.template.html',
     }),
   ],
   module: {
