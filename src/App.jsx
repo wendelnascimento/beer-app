@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import Home from './screens/Home';
+import Loading from './components/Loading';
+
+const Home = React.lazy(() => import('./screens/Home'));
+const Products = React.lazy(() => import('./screens/Products'));
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -18,11 +21,14 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    <Router>
-      <Switch>
-        <Route component={Home} />
-      </Switch>
-    </Router>
+    <Suspense fallback={<Loading />}>
+      <Router>
+        <Switch>
+          <Route exact path="/list" component={Products} />
+          <Route component={Home} />
+        </Switch>
+      </Router>
+    </Suspense>
   </>
 );
 
