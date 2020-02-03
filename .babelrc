@@ -4,6 +4,8 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/transform-runtime"
+    "@babel/transform-runtime",
+    "syntax-dynamic-import",
+    "graphql-tag"
   ]
 }
