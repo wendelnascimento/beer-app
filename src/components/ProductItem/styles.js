@@ -74,3 +74,7 @@ export const AddButton = styled.button`
 export const RemoveButton = styled(AddButton)`
   background: #b03c3c;
 `;
+
+export const QuantityCount = styled.span`
+  font-weight: 700;
+`;

@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductItem /> should render with image 1`] = `
+.c0 {
+  width: 100%;
+  max-width: 300px;
+  background: #ffffff;
+  border: 2px solid #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0,0.6) 0px 2px 15px -5px;
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  transition: transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  overflow: hidden;
+}
+
+.c0:hover {
+  -webkit-transform: translate3d(0,-5px,0);
+  -ms-transform: translate3d(0,-5px,0);
+  transform: translate3d(0,-5px,0);
+  border-color: #f28e1c;
+}
+
+.c1 {
+  width: 100%;
+  object-fit: scale-down;
+  background: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.c2 {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: auto;
+  padding: 0 8px;
+}
+
+.c3 {
+  color: #f28e1c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.c4 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  width: 30px;
+  height: 30px;
+  background: #f28e1c;
+  color: #ffffff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.c7:hover {
+  cursor: pointer;
+}
+
+.c5 {
+  width: 30px;
+  height: 30px;
+  background: #f28e1c;
+  color: #ffffff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 300;
+  background: #b03c3c;
+}
+
+.c5:hover {
+  cursor: pointer;
+}
+
+.c6 {
+  font-weight: 700;
+}
+
+<ProductItem
+  product={
+    Object {
+      "__typename": "Product",
+      "id": "8868",
+      "images": Array [
+        Object {
+          "__typename": "ProductImage",
+          "url": "https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/8868_205f958d-2e51-48a3-b4d5-a2998765571a.jpg",
+        },
+      ],
+      "productVariants": Array [
+        Object {
+          "__typename": "ProductVariant",
+          "availableDate": "2018-10-31T00:00:00",
+          "components": Array [],
+          "description": null,
+          "inventoryItemId": "80149",
+          "price": 2.09,
+          "productVariantId": "8502",
+          "published": null,
+          "shortDescription": null,
+          "subtitle": "Cervejas",
+          "title": "Skol 269ml - Unidade",
+          "volume": "0,00269",
+          "volumeUnit": null,
+        },
+      ],
+      "rgb": false,
+      "title": "Skol 269ml - Unidade",
+    }
+  }
+>
+  <styled.li>
+    <li
+      className="c0"
+    >
+      <styled.img
+        alt="Skol 269ml - Unidade"
+        onError={[Function]}
+        src="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/8868_205f958d-2e51-48a3-b4d5-a2998765571a.jpg"
+      >
+        <img
+          alt="Skol 269ml - Unidade"
+          className="c1"
+          onError={[Function]}
+          src="https://courier-images-codechallenge.s3-us-west-2.amazonaws.com/product/8868_205f958d-2e51-48a3-b4d5-a2998765571a.jpg"
+        />
+      </styled.img>
+      <styled.span>
+        <span
+          className="c2"
+        >
+          Skol 269ml - Unidade
+        </span>
+      </styled.span>
+      <styled.span>
+        <span
+          className="c3"
+        >
+          R$ 2,09
+        </span>
+      </styled.span>
+      <styled.div>
+        <div
+          className="c4"
+        >
+          <Styled(styled.button)
+            onClick={[Function]}
+          >
+            <button
+              className="c5"
+              onClick={[Function]}
+            >
+              <span>
+                -
+              </span>
+            </button>
+          </Styled(styled.button)>
+          <styled.span>
+            <span
+              className="c6"
+            >
+              0
+            </span>
+          </styled.span>
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c7"
+              onClick={[Function]}
+            >
+              <span>
+                +
+              </span>
+            </button>
+          </styled.button>
+        </div>
+      </styled.div>
+    </li>
+  </styled.li>
+</ProductItem>
+`;
+
+exports[`<ProductItem /> should render without image 1`] = `
+.c0 {
+  width: 100%;
+  max-width: 300px;
+  background: #ffffff;
+  border: 2px solid #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0,0.6) 0px 2px 15px -5px;
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  transition: transform 0.3s cubic-bezier(0.19,1,0.22,1), border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  overflow: hidden;
+}
+
+.c0:hover {
+  -webkit-transform: translate3d(0,-5px,0);
+  -ms-transform: translate3d(0,-5px,0);
+  transform: translate3d(0,-5px,0);
+  border-color: #f28e1c;
+}
+
+.c1 {
+  font-size: 5rem;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.c2 {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: auto;
+  padding: 0 8px;
+}
+
+.c3 {
+  color: #f28e1c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.c4 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  width: 30px;
+  height: 30px;
+  background: #f28e1c;
+  color: #ffffff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.c7:hover {
+  cursor: pointer;
+}
+
+.c5 {
+  width: 30px;
+  height: 30px;
+  background: #f28e1c;
+  color: #ffffff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 300;
+  background: #b03c3c;
+}
+
+.c5:hover {
+  cursor: pointer;
+}
+
+.c6 {
+  font-weight: 700;
+}
+
+<ProductItem
+  product={
+    Object {
+      "__typename": "Product",
+      "id": "8868",
+      "images": Array [
+        Object {
+          "__typename": "ProductImage",
+          "url": "",
+        },
+      ],
+      "productVariants": Array [
+        Object {
+          "__typename": "ProductVariant",
+          "availableDate": "2018-10-31T00:00:00",
+          "components": Array [],
+          "description": null,
+          "inventoryItemId": "80149",
+          "price": 2.09,
+          "productVariantId": "8502",
+          "published": null,
+          "shortDescription": null,
+          "subtitle": "Cervejas",
+          "title": "Skol 269ml - Unidade",
+          "volume": "0,00269",
+          "volumeUnit": null,
+        },
+      ],
+      "rgb": false,
+      "title": "Skol 269ml - Unidade",
+    }
+  }
+>
+  <styled.li>
+    <li
+      className="c0"
+    >
+      <styled.span>
+        <span
+          className="c1"
+        >
+          <span
+            aria-label="Skol 269ml - Unidade"
+            role="img"
+          >
+            🍺
+          </span>
+        </span>
+      </styled.span>
+      <styled.span>
+        <span
+          className="c2"
+        >
+          Skol 269ml - Unidade
+        </span>
+      </styled.span>
+      <styled.span>
+        <span
+          className="c3"
+        >
+          R$ 2,09
+        </span>
+      </styled.span>
+      <styled.div>
+        <div
+          className="c4"
+        >
+          <Styled(styled.button)
+            onClick={[Function]}
+          >
+            <button
+              className="c5"
+              onClick={[Function]}
+            >
+              <span>
+                -
+              </span>
+            </button>
+          </Styled(styled.button)>
+          <styled.span>
+            <span
+              className="c6"
+            >
+              0
+            </span>
+          </styled.span>
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c7"
+              onClick={[Function]}
+            >
+              <span>
+                +
+              </span>
+            </button>
+          </styled.button>
+        </div>
+      </styled.div>
+    </li>
+  </styled.li>
+</ProductItem>
+`;

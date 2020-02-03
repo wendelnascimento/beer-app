@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -10,6 +10,7 @@ import {
   RemoveButton,
   ImagePlaceholder,
   ProductTitle,
+  QuantityCount,
 } from './styles';
 
 const ProductItem = ({ product }) => {
@@ -29,6 +30,12 @@ const ProductItem = ({ product }) => {
 
   const handleOnErrorImg = () => setErrorImg(true);
 
+  useEffect(() => {
+    if (!product.images[0].url) {
+      handleOnErrorImg();
+    }
+  }, [product]);
+
   return (
     <Card>
       {errorImg ? (
@@ -46,7 +53,7 @@ const ProductItem = ({ product }) => {
         <RemoveButton onClick={removeItem}>
           <span>-</span>
         </RemoveButton>
-        {quantity}
+        <QuantityCount>{quantity}</QuantityCount>
         <AddButton onClick={addItem}>
           <span>+</span>
         </AddButton>
