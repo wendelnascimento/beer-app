@@ -5,7 +5,7 @@ module.exports = {
   mode: process.env.BEER_APP_ENV || 'production',
   entry: './index.jsx',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './public'),
     filename: '[name]-[hash].js',
   },
   devtool: 'source-map',
@@ -33,7 +33,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     hot: true,
     port: process.env.PORT || '3000',
     open: true,
