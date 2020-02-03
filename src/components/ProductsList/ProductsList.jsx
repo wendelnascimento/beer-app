@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 
 import ProductItem from '../ProductItem';
 
-import { List } from './styles';
+import { List, EmptyText } from './styles';
 
-const ProductsList = ({ products }) => (
-  <List>
-    {products.map((p) => (
-      <ProductItem key={p.id} product={p} />
-    ))}
-  </List>
-);
+const ProductsList = ({ products }) => {
+  if (products.length === 0) {
+    return <EmptyText>Nenhum produto encontrado</EmptyText>;
+  }
+  return (
+    <List>
+      {products.map((p) => (
+        <ProductItem key={p.id} product={p} />
+      ))}
+    </List>
+  );
+};
 
 ProductsList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
