@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoriesList /> should match stored snapshot 1`] = `
+.c0 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-gap: 16px;
+}
+
+.c1 {
+  border: 2px solid #000;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-transition: border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+  transition: border-color 0.3s cubic-bezier(0.19,1,0.22,1);
+}
+
+.c1:hover {
+  border-color: #f28e1c;
+}
+
+.c2 {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  font-weight: 700;
+  text-align: center;
+  background: #ffffff;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width:900px) {
+  .c0 {
+    grid-template-columns: repeat(5,1fr);
+  }
+}
+
+@media screen and (max-width:600px) {
+  .c0 {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media screen and (max-width:460px) {
+  .c0 {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media screen and (max-width:350px) {
+  .c0 {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+<CategoriesList
+  categories={
+    Array [
+      Object {
+        "__typename": "Category",
+        "id": "94",
+        "title": "Cervejas",
+      },
+      Object {
+        "__typename": "Category",
+        "id": "95",
+        "title": "Destilados",
+      },
+      Object {
+        "__typename": "Category",
+        "id": "92",
+        "title": "Vinhos",
+      },
+      Object {
+        "__typename": "Category",
+        "id": "96",
+        "title": "Sem álcool",
+      },
+      Object {
+        "__typename": "Category",
+        "id": "97",
+        "title": "Petiscos",
+      },
+      Object {
+        "__typename": "Category",
+        "id": "98",
+        "title": "Outros",
+      },
+    ]
+  }
+  onSelect={[MockFunction]}
+>
+  <styled.ul>
+    <ul
+      className="c0"
+    >
+      <styled.li>
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Todos
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="94"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Cervejas
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="95"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Destilados
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="92"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Vinhos
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="96"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Sem álcool
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="97"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Petiscos
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+      <styled.li
+        key="98"
+      >
+        <li
+          className="c1"
+        >
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="c2"
+              onClick={[Function]}
+            >
+              Outros
+            </button>
+          </styled.button>
+        </li>
+      </styled.li>
+    </ul>
+  </styled.ul>
+</CategoriesList>
+`;
